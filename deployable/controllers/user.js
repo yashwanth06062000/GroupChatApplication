@@ -42,6 +42,9 @@ function signupUser(req, res, next) {
             })
                 .catch((err) => console.log(err));
         }
+        else {
+            res.json({ message: "User already exists please login" });
+        }
     });
 }
 exports.signupUser = signupUser;

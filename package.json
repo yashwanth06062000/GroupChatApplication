@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yashwanth06062000/GroupChatApplication#readme",
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "@types/bcrypt": "^5.0.0",
     "express": "^4.17.3",
     "sequelize": "^6.17.0"

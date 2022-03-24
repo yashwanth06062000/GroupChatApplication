@@ -30,6 +30,10 @@ export async function signupUser(req: Request, res: Response, next: NextFunction
       })
       .catch((err) => console.log(err));
   }
+  else{
+    res.json({ message: "User already exists please login" });
+
+  }
 }
 
 
