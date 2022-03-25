@@ -4,7 +4,9 @@ export default sequelize1.define('Users',{
     userid:{
         type:Sequelize.NUMBER,
         allowNull:false,
-        autoIncrement:true
+        autoIncrement:true,
+        primaryKey:true
+
     },
     name:{
         type:Sequelize.STRING,
@@ -15,7 +17,7 @@ export default sequelize1.define('Users',{
         allowNull:false
     },
     phone:{
-        type:Sequelize.NUMBER,
+        type:Sequelize.STRING,
         allowNull:false
     },
     password:{

@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.signupUser = void 0;
+exports.login = exports.signupUser = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const users_1 = __importDefault(require("../models/users"));
 function signupUser(req, res, next) {
@@ -48,3 +48,17 @@ function signupUser(req, res, next) {
     });
 }
 exports.signupUser = signupUser;
+function login(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const email = req.body.email;
+        const password = req.body.password;
+        yield users_1.default.findAll({ where: { email: email } })
+            .then((user) => {
+            console.log(user[0]);
+        })
+            .catch((e) => {
+            res.sendStatus(400).json({ message: "User not Found" });
+        });
+    });
+}
+exports.login = login;

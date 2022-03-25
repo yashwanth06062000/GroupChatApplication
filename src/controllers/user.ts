@@ -1,4 +1,6 @@
 import { Request, Response, NextFunction, request } from "express";
+import jwttoken from "jsonwebtoken";
+
 
 import bcrypt from "bcrypt";
 
@@ -34,6 +36,21 @@ export async function signupUser(req: Request, res: Response, next: NextFunction
     res.json({ message: "User already exists please login" });
 
   }
+}
+export async function login(req:Request,res:Response){
+  const email:string=req.body.email;
+  const password:string=req.body.password;
+  await Users.findAll({ where: {email: email } })
+  .then((user)=>{
+    console.log(user[0])
+  })
+  .catch((e)=>{
+    res.sendStatus(400).json({message:"User not Found"})
+  })
+
+
+
+
 }
 
 

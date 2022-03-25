@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node deployable/app.js"
+    "start": "node deployable/app.js"
   },
   "repository": {
     "type": "git",
@@ -20,12 +20,15 @@
   "dependencies": {
     "@types/axios": "^0.14.0",
     "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^8.5.8",
+    "bcrypt": "^5.0.1",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
     "sequelize": "^6.17.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
-    "@types/mysql2": "github:types/mysql2",
     "@types/sequelize": "github:types/sequelize"
   }
 }

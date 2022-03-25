@@ -9,7 +9,8 @@ exports.default = db_1.default.define('Users', {
     userid: {
         type: sequelize_1.default.NUMBER,
         allowNull: false,
-        autoIncrement: true
+        autoIncrement: true,
+        primaryKey: true
     },
     name: {
         type: sequelize_1.default.STRING,
@@ -20,7 +21,7 @@ exports.default = db_1.default.define('Users', {
         allowNull: false
     },
     phone: {
-        type: sequelize_1.default.NUMBER,
+        type: sequelize_1.default.STRING,
         allowNull: false
     },
     password: {
