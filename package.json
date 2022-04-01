@@ -18,16 +18,21 @@
   },
   "homepage": "https://github.com/yashwanth06062000/GroupChatApplication#readme",
   "dependencies": {
+    "@sequelize/core": "^7.0.0-alpha.10",
     "@types/axios": "^0.14.0",
     "@types/bcrypt": "^5.0.0",
     "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^17.0.23",
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "express": "^4.17.3",
+    "http-server": "^14.1.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.17.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/sequelize": "github:types/sequelize"
   }

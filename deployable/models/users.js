@@ -3,29 +3,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const db_1 = __importDefault(require("../utils/db"));
-const sequelize_1 = __importDefault(require("sequelize"));
-exports.default = db_1.default.define('Users', {
-    userid: {
-        type: sequelize_1.default.NUMBER,
+exports.usertable = void 0;
+var db_1 = __importDefault(require("../utils/db"));
+var core_1 = require("@sequelize/core");
+exports.usertable = db_1.default.define('Users', {
+    id: {
+        type: core_1.DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
     },
     name: {
-        type: sequelize_1.default.STRING,
+        type: core_1.DataTypes.STRING(128),
         allowNull: false
     },
     email: {
-        type: sequelize_1.default.STRING,
+        type: core_1.DataTypes.STRING(128),
         allowNull: false
     },
     phone: {
-        type: sequelize_1.default.STRING,
+        type: core_1.DataTypes.STRING(128),
         allowNull: false
     },
     password: {
-        type: sequelize_1.default.STRING,
+        type: core_1.DataTypes.STRING(128),
         allowNull: false
     }
 });

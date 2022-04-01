@@ -1,27 +1,27 @@
 import sequelize1 from "../utils/db"
-import Sequelize from "sequelize"
-export default sequelize1.define('Users',{
-    userid:{
-        type:Sequelize.NUMBER,
+import {DataTypes} from "@sequelize/core"
+export const usertable= sequelize1.define('Users',{
+    id:{
+        type:DataTypes.INTEGER.UNSIGNED,
         allowNull:false,
         autoIncrement:true,
         primaryKey:true
 
     },
     name:{
-        type:Sequelize.STRING,
+        type:DataTypes.STRING(128),
         allowNull:false
     },
     email:{
-        type:Sequelize.STRING,
+        type:DataTypes.STRING(128),
         allowNull:false
     },
     phone:{
-        type:Sequelize.STRING,
+        type:DataTypes.STRING(128),
         allowNull:false
     },
     password:{
-        type:Sequelize.STRING,
+        type:DataTypes.STRING(128),
         allowNull:false
     }
 

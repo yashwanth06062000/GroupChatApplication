@@ -1,21 +1,26 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const axios_1 = __importDefault(require("axios"));
-const login = document.getElementById("login");
-login.addEventListener("click", (e) => {
-    const emailtag = document.getElementById("email");
-    const email = emailtag.value;
-    const passwordtag = document.getElementById("email");
-    const password = passwordtag.value;
-    let logincreds = {
+const login =document.getElementById("loginbutton")
+login.addEventListener("click", (e)=> {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password= document.getElementById("email").value;
+
+    const logincreds = {
         email: email,
         password: password
     };
-    axios_1.default
-        .post("/login", logincreds)
-        .then((token) => { console.log(token); })
-        .catch(err => { console.log(err); });
+    console.log(logincreds)
+    axios
+        .post("http://localhost:3000/login", logincreds)
+        .then((token) =>{ 
+            console.log(token.data.Accesstoken,"i am here supposed to print the ");
+
+            localStorage.setItem("jwttoken",`${token.data.Accesstoken}`)
+            window.location.replace('./chatapp.html')
+         })
+        .catch( (err)=> { console.log(err); });
 });
+const signuppage=document.getElementById("signupbutton");
+signuppage.addEventListener("click",(e)=>{
+    e.preventDefault()
+    window.location.replace('./signupdest.html')
+})
