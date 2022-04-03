@@ -100,7 +100,7 @@ function login(req, res) {
                 case 0:
                     email = req.body.email;
                     password = req.body.password;
-                    return [4 /*yield*/, users_1.usertable.findAll()
+                    return [4 /*yield*/, users_1.usertable.findAll({ where: { email: email } })
                             .then(function (user) { return __awaiter(_this, void 0, void 0, function () {
                             var passworddb;
                             return __generator(this, function (_a) {

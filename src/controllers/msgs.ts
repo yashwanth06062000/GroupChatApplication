@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction, request } from "express";
 import { messagetable } from "../models/messages";
+import {Op} from "sequelize";
 
 export const sendmsg = async (req: any, res: Response, next: NextFunction) => {
   const user = req.user;
@@ -9,9 +10,10 @@ export const sendmsg = async (req: any, res: Response, next: NextFunction) => {
     res.sendStatus(200);
   });
 };
-export const getmessages = async (req: Request, res: Response) => {
-  messagetable
-    .findAll()
+export const getmessages = async (req: any, res: Response) => {
+  const id:any=req.query.id
+ messagetable
+    .findAll({where:{msgid:{[Op.gte]:id}}})
     .then((msgs) => {
       res.json(msgs);
     })

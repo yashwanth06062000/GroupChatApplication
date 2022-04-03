@@ -16,7 +16,7 @@ document.getElementById("signup").addEventListener("click", (e) => {
   };
 console.log("check me")
   axios
-  .post("http://localhost:3000/signupUser", userdetails)
+  .post("http://localhost:3000/signupUser", {params:{id:0}})
   .then((result) => {
     alert(result);
     window.location.replace('./login.html')

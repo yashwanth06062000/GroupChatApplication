@@ -38,14 +38,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getmessages = exports.sendmsg = void 0;
 var messages_1 = require("../models/messages");
+var sequelize_1 = require("sequelize");
 var sendmsg = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var user, message, username;
     return __generator(this, function (_a) {
         user = req.user;
         message = req.body.message;
         username = req.user.name;
-        user.createMessage({ message: message, Username: username })
-            .then(function () {
+        user.createMessage({ message: message, Username: username }).then(function () {
             res.sendStatus(200);
         });
         return [2 /*return*/];
@@ -53,8 +53,12 @@ var sendmsg = function (req, res, next) { return __awaiter(void 0, void 0, void 
 }); };
 exports.sendmsg = sendmsg;
 var getmessages = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        messages_1.messagetable.findAll()
+    var id;
+    var _a;
+    return __generator(this, function (_b) {
+        id = req.query.id;
+        messages_1.messagetable
+            .findAll({ where: { msgid: (_a = {}, _a[sequelize_1.Op.gte] = id, _a) } })
             .then(function (msgs) {
             res.json(msgs);
         })

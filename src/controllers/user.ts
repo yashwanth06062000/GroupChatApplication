@@ -47,7 +47,7 @@ export async function login(req:Request,res:Response){
  
   const email:string=req.body.email;
   const password:string=req.body.password;
-await usertable.findAll()
+await usertable.findAll({ where: { email: email } })
   .then(async (user:any)=>{
     const passworddb=user[0].password;
     await bcrypt.compare(password,passworddb,async function (err,response){
