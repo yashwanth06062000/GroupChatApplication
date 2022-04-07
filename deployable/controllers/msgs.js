@@ -36,18 +36,26 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getmessages = exports.sendmsg = void 0;
+exports.getgroupmessages = exports.getmessages = exports.sendmsg = void 0;
 var messages_1 = require("../models/messages");
 var sequelize_1 = require("sequelize");
 var sendmsg = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var user, message, username;
+    var user, message, username, groupid;
     return __generator(this, function (_a) {
         user = req.user;
         message = req.body.message;
         username = req.user.name;
-        user.createMessage({ message: message, Username: username }).then(function () {
-            res.sendStatus(200);
-        });
+        groupid = req.body.groupid;
+        if (!groupid) {
+            user.createMessage({ message: message, Username: username }).then(function () {
+                res.sendStatus(200);
+            });
+        }
+        else {
+            user.createMessage({ message: message, Username: username, GroupId: groupid }).then(function () {
+                res.sendStatus(200);
+            });
+        }
         return [2 /*return*/];
     });
 }); };
@@ -58,7 +66,7 @@ var getmessages = function (req, res) { return __awaiter(void 0, void 0, void 0,
     return __generator(this, function (_b) {
         id = req.query.id;
         messages_1.messagetable
-            .findAll({ where: { msgid: (_a = {}, _a[sequelize_1.Op.gte] = id, _a) } })
+            .findAll({ where: { msgid: (_a = {}, _a[sequelize_1.Op.gt] = id, _a), GroupId: null } })
             .then(function (msgs) {
             res.json(msgs);
         })
@@ -67,3 +75,19 @@ var getmessages = function (req, res) { return __awaiter(void 0, void 0, void 0,
     });
 }); };
 exports.getmessages = getmessages;
+var getgroupmessages = function (req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var groupid;
+        return __generator(this, function (_a) {
+            groupid = req.query.gid;
+            messages_1.messagetable
+                .findAll({ where: { GroupId: groupid } })
+                .then(function (msgs) {
+                res.json(msgs);
+            })
+                .catch(function (err) { return console.log(err); });
+            return [2 /*return*/];
+        });
+    });
+};
+exports.getgroupmessages = getgroupmessages;

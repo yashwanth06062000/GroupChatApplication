@@ -2,3 +2,42 @@
     display: flex;
 
 }
+.groupdiv{
+    display: flex;
+    height:35px;
+    background-color: white;
+    border: white;
+
+}
+#groups{
+    display: inline-block;
+    border: 1px dotted black;
+    width: 250px;
+    height:700px;
+    margin-top: 20px;
+}
+#creategroups{
+    border: 1px dotted black;
+    width: auto;
+    height: auto;
+    position: fixed;
+    right: 0px;
+    top: 50px;
+
+}
+#msgsgroups{
+    display: flex;
+}
+#msgs{
+    border: 1px dotted black;
+    width: auto;
+    height:auto;
+    margin-left: 20px;
+    margin-top: 20px;
+    
+
+}
+#creategroup{
+    position: fixed;
+    right: 0px;
+}

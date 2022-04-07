@@ -32,3 +32,4 @@ var messagecontroller = __importStar(require("../controllers/msgs"));
 exports.msgrouter = express_1.default.Router();
 exports.msgrouter.post("/sendmsg", messagecontroller.sendmsg);
 exports.msgrouter.get("/getmessages", messagecontroller.getmessages);
+exports.msgrouter.get("/getgroupmessages", messagecontroller.getgroupmessages);

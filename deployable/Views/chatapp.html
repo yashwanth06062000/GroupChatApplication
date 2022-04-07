@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chatapp</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <form action="" class="msg" id="msg">
-        <label for="msg">Message:</label>
-        <input type="text" id="msginput" name="msg">
-        <button type="submit" id="sdmsg">send message</button>
+      <label for="msg">Message:</label>
+      <input type="text" id="msginput" name="msg" />
+      <button type="submit" id="sdmsg">send message</button>
+      <input type="text" id="groupid" />
     </form>
-    <h1>chatApp</h1>
-<div class="msgs" id="msgs"></div>    
-<script src="chatapp.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</body>
+    <div id="msgsgroups">
+      <div id="groups"></div>
+
+      <div class="msgs" id="msgs">
+        <h1>Messages:</h1>
+      </div>
+    </div>
+    <div id="creategroups">
+      <form action="">
+        <label for="groupname">Group Name:</label>
+        <input type="text" name="groupname" id="gpname" /> <br />
+        <button type="submit" id="cgp">Create Group</button>
+      </form>
+      <form>
+        <label for="adduser">AddUsertogroup:</label>
+        <input type="text" name="adduser" id="adduser" /> <br />
+        <label for="makeadmin">Give Admin Access</label>
+        <input type="radio" name="makeadmin" id="makeadmin" value="on"/>
+        <label for="makeadmin">Add Normal user</label>
+        <input type="radio" name="makeadmin" id="makeadmin" value="off"/> <br>
+        <button type="submit" id="adu">Add User</button>
+      </form>
+      <form>
+        <label for="rmuser">RemoveUserfromgroup:</label>
+        <input type="text" name="rmuser" id="rmuser" /> <br />
+        <button type="submit" id="rmu">Remove User</button>
+      </form>
+    </div>
+    <script src="chatapp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
 </html>
